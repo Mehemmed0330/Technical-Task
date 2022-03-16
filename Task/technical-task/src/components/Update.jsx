@@ -4,22 +4,27 @@ import { useDispatch } from 'react-redux';
 import { updateBookData } from '../feauters/Books';
 import { useParams } from "react-router-dom"
 import { useSelector } from 'react-redux';
+import { useNavigate } from "react-router-dom"
 
 
 export default function Update() {
-    const book = useSelector((state) =>
-        state.books.find((book) => book.id === id)
-    );
-    const [newName, setNewName] = useState(book.name);
-    const [newAuthor, setNewAuthor] = useState(book.author);
-    const [newPrice, setNewPrice] = useState(book.price);
+    // const book = useSelector((state) =>
+    //     state.books.find((book) => book.id === id)
+    // );
+    const [newName, setNewName] = useState("");
+    const [newAuthor, setNewAuthor] = useState("");
+    const [newPrice, setNewPrice] = useState("");
+    const navigate = useNavigate()
 
 
 
     const update = () => {
         if (newName && newAuthor && newPrice) {
-            dispatch(updateBookData({ id: id, newName, newAuthor, newPrice }))
+            dispatch(updateBookData({ id: id, name: newName, author: newAuthor, price: newPrice }))
         }
+        navigate("/books")
+
+
         setNewName("");
         setNewAuthor("")
         setNewPrice("")

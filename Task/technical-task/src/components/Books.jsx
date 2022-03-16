@@ -37,7 +37,7 @@ export default function Books() {
                         <td>{book.name}</td>
                         <td>{book.author}</td>
                         <td>{book.price}</td>
-                        <td><AiFillEdit style={{ fontSize: "16px", margin: "0px 5px", color: "green", cursor: "pointer" }} onClick={() => navigate("/update" + book.id)} /> <AiFillDelete style={{ fontSize: "16px", margin: "0px 5px", color: "red", cursor: "pointer" }} onClick={() => { dispatch(deleteBook({ id: book.id })) }} /></td>
+                        <td><AiFillEdit style={{ fontSize: "16px", margin: "0px 5px", color: "green", cursor: "pointer" }} onClick={() => navigate("/update/" + book.id)} /> <AiFillDelete style={{ fontSize: "16px", margin: "0px 5px", color: "red", cursor: "pointer" }} onClick={() => { dispatch(deleteBook({ id: book.id })) }} /></td>
                     </tr>
                 })}
 
