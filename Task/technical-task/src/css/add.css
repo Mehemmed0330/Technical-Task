@@ -1,0 +1,77 @@
+.card {
+    height: 582px;
+    border-radius: 10px;
+    width: 382px;
+    background: #363740;
+}
+
+.section-title {
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 60px;
+    text-align: center;
+    letter-spacing: 0.3px;
+    margin: 10px 0px;
+    color: #F0F1F7
+}
+
+.add-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* width: 100%; */
+    align-items: center;
+    width: 50%;
+    margin: 0px auto;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs label {
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    color: #9FA2B4;
+}
+
+.inputs input {
+    background: #FCFDFE;
+    border: 1px solid #F0F1F7;
+    box-sizing: border-box;
+    border-radius: 8px;
+    width: 316px;
+    height: 42px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    outline: none;
+    font-size: 16px;
+    padding-left: 10px
+}
+
+.btn {
+    background: #3751FF;
+    box-shadow: 0px 4px 12px rgba(55, 81, 255, 0.24);
+    border-radius: 8px;
+    width: 316px;
+    height: 48px;
+    border: none;
+    color: white;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+::placeholder {
+    color: #4B506D;
+    opacity: 0.4;
+    font-family: "Mulish";
+}
