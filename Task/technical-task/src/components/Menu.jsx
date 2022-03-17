@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from "react-router-dom";
-import "../css/reset.css"
-import "../css/menu.css"
+import "../scss/reset.scss"
+import "../scss/menu.scss"
 
 export default function Menu() {
     return (

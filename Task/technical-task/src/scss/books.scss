@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import "colors";
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    /* border-collapse: separate; */
+    width: 70%;
+    border-radius: 8px;
+    margin: 0px auto;
+    border: 1px solid $platinum;
+    box-sizing: border-box;
+    tr th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: white;
+        color: $gull__grey;
+        border-bottom: 2.5px solid $platinum;
+        text-align: center;
+    }
+    td,
+    th {
+        /* border: 1px solid #ddd; */
+        padding: 25px 8px;
+        border-bottom: 2.5px solid $platinum;
+        background-color: white;
+        font-weight: 600;
+        font-size: 14px;
+        text-align: center;
+    }
+}

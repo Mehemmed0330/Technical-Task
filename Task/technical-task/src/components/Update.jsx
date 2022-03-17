@@ -1,42 +1,77 @@
 import React from 'react'
-import { useState } from "react"
-import { useDispatch } from 'react-redux';
-import { updateBookData } from '../feauters/Books';
-import { useParams } from "react-router-dom"
-import { useSelector } from 'react-redux';
-import { useNavigate } from "react-router-dom"
-
+import "../scss/add.scss"
+import { useDispatch } from 'react-redux'
+import { useState, useEffect } from "react"
+import { useSelector } from 'react-redux'
+import { getSingleBook, updateBook } from "../feauters/actions"
+import { useNavigate, useParams } from "react-router-dom"
 
 export default function Update() {
-    // const book = useSelector((state) =>
-    //     state.books.find((book) => book.id === id)
-    // );
-    const [newName, setNewName] = useState("");
-    const [newAuthor, setNewAuthor] = useState("");
-    const [newPrice, setNewPrice] = useState("");
-    const navigate = useNavigate()
 
 
 
-    const update = () => {
-        if (newName && newAuthor && newPrice) {
-            dispatch(updateBookData({ id: id, name: newName, author: newAuthor, price: newPrice }))
-        }
-        navigate("/books")
-
-
-        setNewName("");
-        setNewAuthor("")
-        setNewPrice("")
-    }
-    const dispatch = useDispatch()
+    const [state, setState] = useState({
+        name: "",
+        author: "",
+        price: "",
+    });
     const { id } = useParams()
+    const { book } = useSelector(state => state.data)
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const { name, author, price } = state;
+
+    useEffect(() => {
+        dispatch(getSingleBook(id))
+    }, []);
+
+    useEffect(() => {
+        if (book) {
+            setState({ ...book })
+        }
+    }, [book]);
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setState({ ...state, [name]: value })
+    }
+
+
+
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!name || !author || !price) {
+            alert("Zehmet olmasa tam doldurun")
+        }
+        else {
+            dispatch(updateBook(state, id))
+            navigate("/books")
+        }
+    }
     return (
-        <div>
-            <input type="text" placeholder="Kitabin adi" onChange={(e) => setNewName(e.target.value)} />
-            <input type="text" placeholder="Kitabin yazari" onChange={(e) => setNewAuthor(e.target.value)} />
-            <input type="text" placeholder="Kitabin qiymeti" onChange={(e) => setNewPrice(e.target.value)} />
-            <button onClick={update}>Duzelis et</button>
+        <div className="add-section ">
+            <div className="card">
+
+                <div style={{ width: "100%", height: "100%", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                    <div className="section-title">
+                        <h1>Kitabın adını dəyiş</h1>
+                    </div>
+                    <div className="inputs">
+                        <label >Kitabın adı</label>
+                        <input type="text" placeholder="Kitabın adı" value={name || ""} name="name" onChange={handleInputChange} />
+                        <label >Kitabın yazarı</label>
+                        <input type="text" placeholder="Kitabın yazarı" value={author || ""} name="author" onChange={handleInputChange} />
+                        <label >Kitabın qiyməti</label>
+                        <input type="text" placeholder="Kitabın qiyməti" value={price || ""} name="price" onChange={handleInputChange} />
+                        <button className="btn" onChange={handleInputChange} onClick={handleSubmit} >Dəyiş</button>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
     )
 }

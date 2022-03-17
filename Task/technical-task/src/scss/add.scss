@@ -1,0 +1,68 @@
+@import "colors";
+.add-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* width: 100%; */
+    align-items: center;
+    width: 50%;
+    margin: 0px auto;
+    .card {
+        height: 582px;
+        border-radius: 10px;
+        width: 382px;
+        background: $black__rock;
+        .section-title {
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 60px;
+            text-align: center;
+            letter-spacing: 0.3px;
+            margin: 10px 0px;
+            color: $ghost__white
+        }
+        .inputs {
+            display: flex;
+            flex-direction: column;
+            & label {
+                font-family: 'Mulish';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 12px;
+                line-height: 15px;
+                letter-spacing: 0.3px;
+                text-transform: uppercase;
+                color: $gull__grey;
+            }
+            & input {
+                background: $alice__blue;
+                border: 1px solid $ghost__white;
+                box-sizing: border-box;
+                border-radius: 8px;
+                width: 316px;
+                height: 42px;
+                margin-bottom: 10px;
+                margin-top: 5px;
+                outline: none;
+                font-size: 16px;
+                padding-left: 10px
+            }
+            .btn {
+                background: $blue_harmonies;
+                box-shadow: 0px 4px 12px $blue__shadow;
+                border-radius: 8px;
+                width: 316px;
+                height: 48px;
+                border: none;
+                color: white;
+                margin-top: 5px;
+                cursor: pointer;
+            }
+             ::placeholder {
+                color: $bridge__water;
+                opacity: 0.4;
+            }
+        }
+    }
+}

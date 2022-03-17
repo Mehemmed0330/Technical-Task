@@ -1,28 +1,38 @@
 import React from 'react'
-import "../css/add.css"
-import { addBook } from "../feauters/Books"
+import "../scss/add.scss"
+// import { addBook } from "../feauters/Books"
 import { useDispatch } from 'react-redux'
 import { useState } from "react"
-import { useSelector } from 'react-redux'
+import { addBook } from "../feauters/actions"
+import { useNavigate } from "react-router-dom"
 
 export default function Add() {
-    const dispatch = useDispatch()
-    const [name, setName] = useState("");
-    const [author, setAuthor] = useState("");
-    const [price, setPrice] = useState("");
-    const bookList = useSelector((state) => state.books.value)
 
-    const add = () => {
+
+    const [state, setState] = useState({
+        name: "",
+        author: "",
+        price: "",
+    });
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const { name, author, price } = state;
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setState({ ...state, [name]: value })
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
         if (!name || !author || !price) {
             alert("Zehmet olmasa tam doldurun")
         }
-        if (name && author && price) {
-            dispatch(addBook({ id: bookList[bookList.length - 1].id + 1, name, author, price }))
-
-            alert("Zehmet olmasa Kitablar bolmesine kecid edin")
+        else {
+            dispatch(addBook(state, navigate))
+            // navigate("/books")
         }
     }
-
 
     return (
         <div className="add-section ">
@@ -34,12 +44,12 @@ export default function Add() {
                     </div>
                     <div className="inputs">
                         <label >Kitabın adı</label>
-                        <input type="text" placeholder="Kitabın adı" onChange={(e) => setName(e.target.value)} />
+                        <input type="text" placeholder="Kitabın adı" value={name} name="name" onChange={handleInputChange} />
                         <label >Kitabın yazarı</label>
-                        <input type="text" placeholder="Kitabın yazarı" onChange={(e) => setAuthor(e.target.value)} />
+                        <input type="text" placeholder="Kitabın yazarı" value={author} name="author" onChange={handleInputChange} />
                         <label >Kitabın qiyməti</label>
-                        <input type="text" placeholder="Kitabın qiyməti" onChange={(e) => setPrice(e.target.value)} />
-                        <button className="btn" onClick={add}>Əlavə et</button>
+                        <input type="text" placeholder="Kitabın qiyməti" value={price} name="price" onChange={handleInputChange} />
+                        <button className="btn" onChange={handleInputChange} onClick={handleSubmit} >Əlavə et</button>
                     </div>
 
                 </div>

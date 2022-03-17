@@ -1,10 +1,11 @@
-import './App.css';
+import './App.scss';
 import Add from "./components/Add"
 import Books from "./components/Books"
 import Menu from "./components/Menu"
 import Update from "./components/Update"
 import { Routes, Route } from "react-router-dom"
-import "./css/reset.css"
+import "./scss/reset.scss"
+
 
 function App() {
   return (
