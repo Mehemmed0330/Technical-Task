@@ -1,16 +1,15 @@
 {
-  "book": [
-    {
-      "name": "sds",
-      "author": "ddsd",
-      "price": "12",
-      "id": "e9ICYic"
-    },
-    {
-      "name": "Maqa",
-      "author": "sd",
-      "price": "30",
-      "id": "4YkmMVu"
-    }
-  ]
+    "book": [{
+            "name": "Pəncərədə görünən kölgə",
+            "author": "Elxan Elatlı",
+            "price": "20",
+            "id": "1"
+        },
+        {
+            "name": "Ümidlərin izi ilə",
+            "author": "Şəmil Sadiq",
+            "price": "15",
+            "id": "2"
+        }
+    ]
 }
