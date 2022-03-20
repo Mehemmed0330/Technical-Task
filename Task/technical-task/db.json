@@ -1,15 +1,22 @@
 {
-    "book": [{
-            "name": "Pəncərədə görünən kölgə",
-            "author": "Elxan Elatlı",
-            "price": "20",
-            "id": "1"
-        },
-        {
-            "name": "Ümidlərin izi ilə",
-            "author": "Şəmil Sadiq",
-            "price": "15",
-            "id": "2"
-        }
-    ]
+  "book": [
+    {
+      "name": "Pəncərədə görünən kölgə",
+      "author": "Elxan Elatlı",
+      "price": "20",
+      "id": "1"
+    },
+    {
+      "name": "Ümidlərin izi ilə",
+      "author": "Şəmil Sadiq",
+      "price": "15",
+      "id": "2"
+    },
+    {
+      "name": "Maqa",
+      "author": "sdsds",
+      "price": "3000",
+      "id": "S917Jkw"
+    }
+  ]
 }
